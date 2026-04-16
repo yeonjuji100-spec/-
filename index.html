@@ -9,6 +9,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div class="network-overlay"></div>
     <div class="cursor-dot"></div>
     
     <!-- Navigation Menu -->
@@ -30,7 +31,7 @@
                 <div class="section-label">Introduction</div>
             <div class="content-area">
                 <span class="name-tag reveal">YEONJU | FSE CANDIDATE</span>
-                <h1 class="reveal">상상 불가한 혁신을<br>데이터 제어 최적화로 실현합니다.</h1>
+                <h1 class="reveal" style="word-break: keep-all; overflow-wrap: anywhere;">상상 불가한 혁신을 데이터 제어 최적화로 실현하는 지연주 입니다.</h1>
                 <p class="reveal">
                     물리적 하드웨어의 한계를 정밀한 데이터 분석으로 극복하고,<br>
                     반도체 장비의 가동률을 극한으로 끌어올리는 정밀 제어 전문가입니다.<br>
@@ -157,14 +158,13 @@
             </div>
         </section>
 
-        <!-- Bootcamp Content (Merged) -->
+        <!-- Bootcamp Content (Roadmap) -->
         <section id="section-bootcamp">
             <div class="section-label">Roadmap</div>
             <div class="content-area">
                 <div class="reveal">
                     <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">ROADMAP</span>
                     <h2 style="font-size: 3rem; margin: 15px 0; font-weight: 800;">3개년 전문학사/학사 과정</h2>
-                    
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="step-num">01</div>
@@ -200,155 +200,65 @@
                 <div class="reveal" style="margin-top: 100px;">
                     <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">TECHNICAL SYNERGY</span>
                     <h2 style="font-size: 3rem; margin: 15px 0; font-weight: 800;">반도체 장비 엔지니어 특화 기술</h2>
-                    
                     <div class="table-wrapper" style="margin-top: 40px;">
                         <table class="premium-table">
                             <thead>
                                 <tr>
-                                    <th>분야</th>
-                                    <th>핵심 교과 내용</th>
+                                    <th>분류</th>
+                                    <th>핵심 교과 내용 및 역량</th>
                                     <th>램리서치 FSE 연계성</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><strong>기계 (Mechanical)</strong></td>
-                                    <td>기계 요소 설계, 로봇 기구학</td>
+                                    <td>기계 요소 설계, 로봇 기구학, 유공압 제어, CAD/CAM</td>
                                     <td>장비 하드웨어 구조 이해 및 물리적 정비 역량</td>
                                 </tr>
                                 <tr>
                                     <td><strong>전기 전자 (Electrical)</strong></td>
-                                    <td>전기전자 제어, 센서 활용</td>
+                                    <td>전기전자 제어, 센서 활용, 디지털 논리 회로, 전력 전자</td>
                                     <td>장비 전장 계통 트러블슈팅 및 신호 분석</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>프로그래밍 (S/W)</strong></td>
-                                    <td>C#, C++, PLC 프로그래밍</td>
+                                    <td><strong>소프트웨어 (S/W)</strong></td>
+                                    <td>C#, C++, PLC 프로그래밍, 임베디드 시스템</td>
                                     <td>장비 제어 로직 이해 및 최적화 S/W 운용</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>인공지능 (AI)</strong></td>
-                                    <td>인공지능 개론, 머신러닝 기초</td>
+                                    <td><strong>AI & Data</strong></td>
+                                    <td>인공지능 개론, 머신러닝, 데이터베이스, 파이썬 분석</td>
                                     <td>지능형 장비 진단 및 데이터 기반 예지 보전 역량</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>통신 (Communication)</strong></td>
-                                    <td>산업용 통신망, 로봇 네트워크</td>
+                                    <td><strong>통신 & 네트워크</strong></td>
+                                    <td>산업용 통신망, 로봇 네트워크, IoT 인터페이스, 프로토콜</td>
                                     <td>장비 내 모듈 간 통신 및 서버-장비 연결 이해</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="recruit-info reveal" style="margin-top: 60px; padding: 40px; background: rgba(var(--primary-rgb), 0.05); border-radius: 15px; border-left: 5px solid var(--primary-color);">
-                        <h3 style="font-size: 1.8rem; margin-bottom: 20px;">반도체 장비 기업 협력 및 인프라</h3>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                            <div>
-                                <h4 style="color: var(--primary-color); margin-bottom: 10px;">글로벌 장비 기업 우선채용</h4>
-                                <p style="font-size: 0.95rem; line-height: 1.6;">ASM KOREA, Applied Materials(AMK) 등 글로벌 장비 기업과의 협약을 통해 우선 채용 프로세스 및 채용 상담회에 참여하며 역량을 검증받고 있습니다.</p>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--primary-color); margin-bottom: 10px;">최첨단 실전형 인프라</h4>
-                                <p style="font-size: 0.95rem; line-height: 1.6;">사업단 내 구축된 최첨단 교육 시설 및 장비를 활용하여 실제 반도체 생산 라인과 유사한 환경에서 실무 데이터를 직접 다뤄보는 경험을 보유하고 있습니다.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="reveal" style="margin-top: 100px;">
-                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">SPECIAL EDUCATION</span>
-                    <h2 style="font-size: 3rem; margin: 15px 0; font-weight: 800;">반도체 특화 전문 교육</h2>
-                    
-                    <div class="bootcamp-highlight" style="margin-top: 40px;">
-                        <div class="highlight-card main-highlight">
-                            <h3>반도체 장비 S/W 실무 교육</h3>
-                            <p>연주님은 동양미래대학교 반도체부트캠프 사업단의 멤버로 다음 과정을 완수 중입니다.</p>
-                        </div>
-                        
-                        <div class="courses-grid" style="margin-top: 30px;">
-                            <div class="course-item">
-                                <div class="badge">Micro-degree</div>
-                                <h4>반도체 마이크로디그리</h4>
-                                <p style="font-size: 0.8rem; color: var(--primary-color); font-weight: 700; margin-bottom: 10px;">[2026학년도 1학기 이수]</p>
-                                <p>첨단 분야 인재 양성을 위한 반도체 특화 단기 집중 교육과정. 산업체가 요구하는 핵심 역량을 체계적으로 습득.</p>
-                            </div>
-                            <div class="course-item">
-                                <div class="badge">Intensive</div>
-                                <h4>PLC 실무 몰입 교육</h4>
-                                <p style="font-size: 0.8rem; color: var(--primary-color); font-weight: 700; margin-bottom: 10px;">[2026.01.19 ~ 01.28]</p>
-                                <p>8일간의 집중 몰입 교육. PLC를 활용한 장비 제어 로직 설계 및 트러블슈팅 실무 (FSE 핵심 역량).</p>
-                            </div>
-                            <div class="course-item">
-                                <div class="badge">Equip S/W</div>
-                                <h4>반도체장비 S/W 실무</h4>
-                                <p style="font-size: 0.8rem; color: var(--primary-color); font-weight: 700; margin-bottom: 10px;">[2026.01.06 개강]</p>
-                                <p>반도체 제조 장비 운용에 필수적인 소프트웨어 구조 이해 및 실전 프로그래밍 역량 배양.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Subjects Content (Merged) -->
+        <!-- Subjects Content (Special Education) -->
         <section id="section-subjects">
-            <div class="section-label">Curriculum</div>
+            <div class="section-label">Education</div>
             <div class="content-area">
                 <div class="reveal">
-                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">CURRICULUM</span>
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">SPECIAL EDUCATION</span>
                     <h2 style="font-size: 3rem; margin: 15px 0; font-weight: 800;">상세 교과 과정</h2>
-                    <p style="color: var(--text-muted); margin-bottom: 50px;">반도체 엔지니어로서의 전문성을 뒷받침하는 핵심 이수 과목들입니다.</p>
-
-                    <div class="curriculum-grid">
-                        <div class="curriculum-category">
-                            <h3>기계 (Mechanical)</h3>
-                            <ul>
-                                <li>기계 요소 설계</li>
-                                <li>로봇 기구학</li>
-                                <li>유공압 제어 기초</li>
-                                <li>CAD/CAM 실습</li>
-                            </ul>
-                        </div>
-                        <div class="curriculum-category">
-                            <h3>전기 전자 (Electrical)</h3>
-                            <ul>
-                                <li>전기전자 제어</li>
-                                <li>센서 공학</li>
-                                <li>디지털 논리 회로</li>
-                                <li>전력 전자 기초</li>
-                            </ul>
-                        </div>
-                        <div class="curriculum-category">
-                            <h3>소프트웨어 (S/W)</h3>
-                            <ul>
-                                <li>C# 프로그래밍</li>
-                                <li>C++ 객체지향 설계</li>
-                                <li>PLC 프로그래밍 실무</li>
-                                <li>임베디드 시스템</li>
-                            </ul>
-                        </div>
-                        <div class="curriculum-category">
-                            <h3>AI & Data</h3>
-                            <ul>
-                                <li>인공지능 개론</li>
-                                <li>머신러닝 기초</li>
-                                <li>데이터베이스 입문</li>
-                                <li>파이썬 데이터 분석</li>
-                            </ul>
-                        </div>
-                        <div class="curriculum-category">
-                            <h3>통신 & 네트워크</h3>
-                            <ul>
-                                <li>산업용 통신망</li>
-                                <li>로봇 네트워크 시스템</li>
-                                <li>IoT 인터페이스</li>
-                                <li>서버-장비 프로토콜</li>
-                            </ul>
+                    <div class="bootcamp-highlight" style="margin-top: 40px;">
+                        <div class="highlight-card main-highlight">
+                            <h3>반도체 부트캠프 집중 교육 이수</h3>
+                            <p>연주님은 동양미래대학교 반도체부트캠프 사업단의 멤버로 마이크로디그리 및 PLC 몰입 교육을 완수 중입니다.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
         </div> <!-- End of home view -->
 
         <!-- Board View (Keep functional but will be styled) -->
