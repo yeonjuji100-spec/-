@@ -1,14 +1,15 @@
 :root {
-    --primary-color: #0ea5e9; /* Electric Blue/Cyan */
-    --accent-color: #3b82f6;
-    --bg-color: #020617; /* Back to High-Tech Dark */
-    --surface-color: rgba(15, 23, 42, 0.6);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-color: rgba(255, 255, 255, 0.1);
+    --primary-color: #00f2ff; /* Neon Cyan */
+    --accent-color: #7000ff; /* Neon Purple */
+    --bg-color: #050a1f; /* Deep Navy */
+    --surface-color: rgba(10, 25, 47, 0.7);
+    --text-main: #e6f1ff;
+    --text-muted: #8892b0;
+    --border-color: rgba(0, 242, 255, 0.2);
     --spacing-unit: 20px;
-    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    --glow-primary: 0 0 15px rgba(14, 165, 233, 0.4);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --glow-primary: 0 0 20px rgba(0, 242, 255, 0.5);
+    --glow-text: 0 0 10px rgba(0, 242, 255, 0.8);
 }
 
 * {
@@ -83,6 +84,18 @@ section {
     border-bottom: 1px solid var(--border-color);
     display: flex;
     min-height: 450px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 242, 255, 0.02) 100%);
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.3;
 }
 
 .section-label {
@@ -108,9 +121,9 @@ section {
     padding: 80px 100px;
 }
 
-/* Hero Section with Mechanical Overlay */
+/* Hero Section with AI Overlay */
 .hero-section {
-    background-color: #233067; /* Indigo strictly for Hero */
+    background-color: #0a192f;
     color: white;
     border-bottom: none;
     position: relative;
@@ -125,12 +138,15 @@ section {
     width: 100%;
     height: 100%;
     background-image: url('assets/hero_bg.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right center;
-    opacity: 0.15;
-    pointer-events: none;
-    mask-image: linear-gradient(to left, black 50%, transparent);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    animation: pulse 8s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.05; transform: scale(1); }
+    100% { opacity: 0.15; transform: scale(1.05); }
 }
 
 .hero-section .content-area {
@@ -197,6 +213,135 @@ section {
     color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    text-shadow: var(--glow-text);
+}
+
+.shadow-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 242, 255, 0.2);
+}
+
+.name-highlight {
+    color: var(--primary-color);
+    position: relative;
+    font-weight: 900;
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.6);
+    display: inline-block;
+}
+
+.hero-subtext strong {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.phil-icon {
+    font-size: 2rem;
+    color: #ff3333; /* Red accent like the DBL logo */
+    margin-bottom: 20px;
+}
+
+.phil-list, .course-list, .project-bullets {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.phil-list li, .course-list li, .project-bullets li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.phil-list li::before, .course-list li::before, .project-bullets li::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    color: #ff3333;
+    font-size: 0.8rem;
+}
+
+.video-container {
+    border: 1px solid var(--border-color);
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--glow-primary);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.project-media-grid {
+    display: flex;
+    gap: 20px;
+    flex: 1.5;
+    align-items: flex-start; /* Align to top to prevent stretching */
+}
+
+.project-media-grid .project-visual {
+    flex: 1;
+    height: fit-content;
+}
+
+.project-visual img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    display: block;
+    object-fit: contain;
+    border: 1px solid var(--border-color);
+}
+
+.badge-v2 {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--primary-color);
+    color: #050a1f;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.bootcamp-sub-card {
+    background: rgba(10, 25, 47, 0.5);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.bootcamp-sub-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-10px);
+    box-shadow: var(--glow-primary);
+}
+
+.home-nav-btn {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.home-nav-btn:hover {
+    background: var(--primary-color);
+    color: #050a1f;
+    box-shadow: var(--glow-primary);
 }
 
 .phil-card p {
@@ -452,17 +597,20 @@ section {
 .submit-btn {
     padding: 15px 40px;
     background: var(--primary-color);
-    color: white;
+    color: #050a1f; /* Dark navy for contrast */
     border: none;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     transition: var(--transition);
     letter-spacing: 0.1em;
+    border-radius: 30px; /* Rounded corners */
+    text-transform: uppercase;
 }
 
 .submit-btn:hover {
-    background: var(--accent-color);
+    background: #fff;
     transform: translateY(-2px);
+    box-shadow: var(--glow-primary);
 }
 
 .post-item {
@@ -633,10 +781,51 @@ section {
     border-radius: 20px;
 }
 
-.courses-grid {
+/* Project Specific Styles */
+.project-detail-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+}
+
+.spec-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.spec-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.spec-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* Scanline Effect */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 242, 255, 0) 50%,
+        rgba(0, 242, 255, 0.02) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .course-item {
@@ -667,11 +856,11 @@ section {
 /* Enhanced Board UI */
 .write-btn {
     background: var(--primary-color);
-    color: #020617;
+    color: #050a1f;
     border: none;
     padding: 12px 30px;
     font-weight: 800;
-    border-radius: 10px;
+    border-radius: 30px; /* Rounded corners */
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);

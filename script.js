@@ -16,11 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Navigation Logic
     window.navTo = (targetId) => {
-        // Ensure home view is active
-        document.querySelectorAll('.view').forEach(view => {
-            view.classList.remove('active');
-        });
-        document.getElementById('view-home').classList.add('active');
+        // Ensure home view is active (as everything is now in home view)
+        const homeView = document.getElementById('view-home');
+        if (homeView && !homeView.classList.contains('active')) {
+            document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+            homeView.classList.add('active');
+        }
 
         // Update Nav Highlights
         updateNavHighlight(targetId);
@@ -28,28 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Scroll to Section
         const section = document.getElementById(`section-${targetId}`);
         if (section) {
+            const navHeight = 100;
             window.scrollTo({
-                top: section.offsetTop - 100,
+                top: section.offsetTop - navHeight,
                 behavior: 'smooth'
             });
         }
-    };
-
-    window.switchView = (viewId) => {
-        // Update Nav Highlights
-        updateNavHighlight(viewId);
-
-        // Update Views
-        document.querySelectorAll('.view').forEach(view => {
-            view.classList.remove('active');
-        });
-        const targetView = document.getElementById(`view-${viewId}`);
-        if (targetView) {
-            targetView.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
         
-        if (viewId === 'board') refreshBoard();
+        // Load board data if navigating to board section
+        if (targetId === 'board') refreshBoard();
         observeReveals();
     };
 
@@ -139,18 +127,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.showBoardForm = (parentId = null) => {
-        boardListContainer.style.display = 'none';
-        boardFormContainer.style.display = 'block';
+        // Switch to the dedicated form view
+        document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+        const formView = document.getElementById('view-board-form');
+        if (formView) formView.classList.add('active');
+        
         boardForm.reset();
         document.getElementById('post-id').value = '';
         document.getElementById('parent-id').value = parentId || '';
         boardFormTitle.innerText = parentId ? '답글 작성' : '새 글 작성';
-        window.scrollTo({ top: boardFormContainer.offsetTop - 100, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     window.hideBoardForm = () => {
-        boardFormContainer.style.display = 'none';
-        boardListContainer.style.display = 'block';
+        // Return to the home view where the board section is
+        navTo('board');
     };
 
     window.editPost = (id, content) => {
