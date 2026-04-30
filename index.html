@@ -6,6 +6,33 @@
     <title>YEONJU | Lam Research FSE Candidate</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Firebase SDK Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, getDoc, updateDoc, deleteDoc, doc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBLLBvl_OTjyycwH07XAbtbKsBWfSPeewA",
+            authDomain: "myweb-ef5f6.firebaseapp.com",
+            databaseURL: "https://myweb-ef5f6-default-rtdb.firebaseio.com",
+            projectId: "myweb-ef5f6",
+            storageBucket: "myweb-ef5f6.firebasestorage.app",
+            messagingSenderId: "468734712496",
+            appId: "1:468734712496:web:573190a076f49cc47af975",
+            measurementId: "G-89WQLTBZCP"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const analytics = getAnalytics(app);
+
+        // Expose to global scope for script.js
+        window.db = db;
+        window.fb = { collection, addDoc, getDocs, getDoc, updateDoc, deleteDoc, doc, query, orderBy, serverTimestamp };
+    </script>
+
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -103,8 +130,38 @@
                             <li>데이터 분석 기반 정밀 제어 시스템 구축</li>
                         </ul>
                     </div>
-                    <div class="project-visual">
-                        <img src="assets/robot_diagram.webp" alt="8족 로봇 제어 시스템 계통도">
+                    <div class="project-visual video-main-container">
+                        <video autoplay loop muted playsinline poster="assets/robot_diagram.webp">
+                            <source src="assets/robot_video.mp4" type="video/mp4">
+                            <source src="assets/robot_video.mov" type="video/quicktime">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- New Development Gallery Section -->
+                <div class="reveal" style="margin-top: 80px;">
+                    <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 40px; font-weight: 800; text-align: center;">Development Process & Gallery</h3>
+                    
+                    <div class="project-gallery-row">
+                        <div class="gallery-item">
+                            <div class="project-visual">
+                                <img src="assets/robot_physical.png" alt="최종 완성본">
+                            </div>
+                            <p class="gallery-label">최종 완성본</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="project-visual">
+                                <img src="assets/robot_assembly.png" alt="조립 과정">
+                            </div>
+                            <p class="gallery-label">조립 과정</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="project-visual">
+                                <img src="assets/robot_parts.webp" alt="설계도">
+                            </div>
+                            <p class="gallery-label">설계도</p>
+                        </div>
                     </div>
                 </div>
 
@@ -121,8 +178,8 @@
                             <li>센서 데이터 노이즈 차단 및 고해상도 모니터링</li>
                         </ul>
                     </div>
-                    <div class="project-visual">
-                        <img src="assets/arduino_control.webp" alt="Arduino 정밀 제어 시스템">
+                    <div class="project-visual arduino-square-container">
+                        <img src="assets/arduino_real.png" alt="Arduino 실무 제어 시스템">
                     </div>
                 </div>
             </div>

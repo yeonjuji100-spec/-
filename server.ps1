@@ -1,4 +1,4 @@
-$httpListener = New-Object System.Net.HttpListener
+﻿$httpListener = New-Object System.Net.HttpListener
 $httpListener.Prefixes.Add("http://localhost:8092/")
 $httpListener.Start()
 Write-Host "Server started at http://localhost:8092/"
@@ -9,7 +9,7 @@ try {
         $response = $context.Response
         $localPath = $request.Url.LocalPath.TrimStart('/')
         if ($localPath -eq "") { $localPath = "index.html" }
-        Write-Host "[$($request.HttpMethod)] $localPath"
+        Write-Host "[$($request.HttpMethod)] $localPath -> $filePath"
         try {
             # API Endpoints
             if ($localPath -like "api/*") {
@@ -82,14 +82,14 @@ try {
                         $target = $posts | Where-Object { $_.id -eq $postId }
                         if ($target) {
                             $target.content = $requestData.content
-                            $target.date = (Get-Date -Format "yyyy-MM-dd HH:mm:ss") + " (?�정??"
+                            $target.date = (Get-Date -Format "yyyy-MM-dd HH:mm:ss") + " (?섏젙??"
                         } else {
                             foreach ($p in $posts) {
                                 if ($p.replies) {
                                     $targetR = $p.replies | Where-Object { $_.id -eq $postId }
                                     if ($targetR) {
                                         $targetR.content = $requestData.content
-                                        $targetR.date = (Get-Date -Format "yyyy-MM-dd HH:mm:ss") + " (?�정??"
+                                        $targetR.date = (Get-Date -Format "yyyy-MM-dd HH:mm:ss") + " (?섏젙??"
                                         break
                                     }
                                 }
