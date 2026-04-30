@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YEONJU | Lam Research FSE Candidate</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="network-overlay"></div>
+    <div class="cursor-dot"></div>
+    
+    <!-- Navigation Menu -->
+    <nav class="global-nav">
+        <div class="nav-links">
+            <button onclick="navTo('home')" class="nav-btn active" id="nav-home">HOME</button>
+            <button class="nav-btn" onclick="navTo('subjects')" id="nav-subjects">SUBJECTS</button>
+            <button class="nav-btn" onclick="navTo('bootcamp')" id="nav-bootcamp">BOOTCAMP</button>
+            <button class="nav-btn" onclick="navTo('engineering')" id="nav-project">PROJECT</button>
+            <button class="nav-btn" onclick="navTo('board')" id="nav-board">BOARD</button>
+            <button class="nav-btn" onclick="navTo('contact')" id="nav-contact">CONTACT</button>
+        </div>
+    </nav>
+
+    <div class="main-wrapper">
+        <!-- Home View -->
+        <div id="view-home" class="view active">
+            <!-- Hero Section -->
+            <section class="hero-section" id="section-home">
+                <div class="section-label">Introduction</div>
+            <div class="content-area">
+                <span class="name-tag reveal">ENGINEER | FSE CANDIDATE</span>
+                <h1 class="reveal shadow-text" style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.2; word-break: keep-all;">
+                    상상 불가한 혁신을<br>
+                    데이터 제어 최적화로 실현하는<br>
+                    <span class="name-highlight">지연주</span> 입니다.
+                </h1>
+                <div class="hero-subtext reveal" style="margin-top: 40px; font-size: 1.2rem; color: #ccc; line-height: 1.8; max-width: 800px;">
+                    <p>
+                        물리적 하드웨어의 한계를 정밀한 데이터 분석으로 극복하고,<br>
+                        반도체 장비의 가동률을 극한으로 끌어올리는 <strong>정밀 제어 전문가</strong>입니다.
+                    </p>
+                    <p style="margin-top: 20px; color: var(--primary-color); font-weight: 700;">
+                        램리서치의 신뢰성을 저의 엔지니어링 역량과 결합하여,<br>
+                        고객사 현장에서 최상의 퍼포먼스를 증명하겠습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section id="philosophy">
+            <div class="section-label">Philosophy</div>
+            <div class="content-area">
+                <div class="philosophy-grid">
+                    <div class="phil-card reveal">
+                        <div class="phil-icon">▲</div>
+                        <h3>Challenge</h3>
+                        <p>하드웨어 제어의 한계를 돌파하며 혁신적 사고와 문제 해결 능력을 체득했습니다.</p>
+                        <ul class="phil-list">
+                            <li>8족 로봇 설계 프로젝트 완수</li>
+                            <li>불가능을 가능으로 바꾸는 도전 정신</li>
+                        </ul>
+                    </div>
+                    <div class="phil-card reveal">
+                        <div class="phil-icon">■</div>
+                        <h3>Persistence</h3>
+                        <p>0.01mm의 오차도 허용하지 않는 집요함으로 최상의 퍼포먼스를 구현합니다.</p>
+                        <ul class="phil-list">
+                            <li>모터 동기화율 99.9% 달성</li>
+                            <li>수천 번의 테스트를 통한 신뢰성 확보</li>
+                        </ul>
+                    </div>
+                    <div class="phil-card reveal">
+                        <div class="phil-icon">◆</div>
+                        <h3>Communication</h3>
+                        <p>기술적 가교로서 명확하고 신속한 의사소통을 통해 장비 가동률을 극대화합니다.</p>
+                        <ul class="phil-list">
+                            <li>학생회 활동을 통한 이해관계 조율</li>
+                            <li>고객사-본사 간 유기적 협력 강화</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Case Study (Project Section) -->
+        <section id="section-engineering">
+            <div class="section-label">Engineering</div>
+            <div class="content-area">
+                <div class="project-split reveal">
+                    <div class="project-info">
+                        <span style="color: var(--primary-color); font-weight: 700; letter-spacing: 0.1em;">CASE STUDY 01</span>
+                        <h2 class="shadow-text">8족 보행 로봇:<br>다관절 동기화 알고리즘</h2>
+                        <p style="font-weight: 700; color: #fff;">
+                            역기구학(Inverse Kinematics) 알고리즘을 구현하여<br>
+                            실시간 임베디드 시스템의 신호 지연 문제를 해결했습니다.
+                        </p>
+                        <ul class="project-bullets">
+                            <li>물리 하드웨어와 제어 로직 간 동기화 오차 최소화</li>
+                            <li>데이터 분석 기반 정밀 제어 시스템 구축</li>
+                        </ul>
+                    </div>
+                    <div class="project-media-grid">
+                        <div class="project-visual">
+                            <img src="assets/robot_diagram.webp" alt="8족 로봇 제어 시스템 계통도">
+                        </div>
+                        <div class="video-container">
+                            <video controls width="100%">
+                                <source src="assets/robot_video.mov#t=0.001" type="video/quicktime">
+                                <source src="assets/robot_video.mov#t=0.001" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-split reveal">
+                    <div class="project-info">
+                        <span style="color: var(--primary-color); font-weight: 700; letter-spacing: 0.1em;">CASE STUDY 02</span>
+                        <h2 class="shadow-text">Arduino 기반<br>다원 제어 시스템</h2>
+                        <p style="font-weight: 700; color: #fff;">
+                            반도체 장비의 신호 안정성 확보를 위한<br>
+                            실무 프로젝트입니다.
+                        </p>
+                        <ul class="project-bullets">
+                            <li>50ms 디바운싱 처리 및 PWM 정밀 전력 제어</li>
+                            <li>센서 데이터 노이즈 차단 및 고해상도 모니터링</li>
+                        </ul>
+                    </div>
+                    <div class="project-visual">
+                        <img src="assets/arduino_control.webp" alt="Arduino 정밀 제어 시스템">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="section-subjects">
+            <div class="section-label">SUBJECT</div>
+            <div class="content-area">
+                <div class="reveal" style="margin-bottom: 80px;">
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">IMMERSIVE EDUCATION</span>
+                    <h2 class="shadow-text" style="font-size: 3rem; margin: 15px 0; font-weight: 800;">학업 및 전문 역량</h2>
+                    <p style="font-size: 1.3rem; color: var(--text-muted); max-width: 900px; line-height: 1.8;">
+                        PLC 기반의 산업용 자동화 라인 제어와<br>
+                        반도체 장비 전용 S/W 아키텍처 실무 역량을<br>
+                        현장에 즉시 투입 가능하도록 몰입 학습했습니다.
+                    </p>
+                </div>
+
+                <div class="courses-grid">
+                    <div class="course-item reveal">
+                        <h4>PLC 프로그래밍</h4>
+                        <ul class="course-list">
+                            <li>산업용 자동화 제어 로직 설계</li>
+                            <li>센서-액추에이터 시나리오 최적화</li>
+                        </ul>
+                    </div>
+                    <div class="course-item reveal">
+                        <h4>인공지능 개론</h4>
+                        <ul class="course-list">
+                            <li>머신러닝 기법 활용 고장 예측</li>
+                            <li>데이터 기반 시스템 최적화</li>
+                        </ul>
+                    </div>
+                    <div class="course-item reveal">
+                        <h4>웹 프로그래밍</h4>
+                        <ul class="course-list">
+                            <li>장비 상태 모니터링 대시보드</li>
+                            <li>실시간 데이터 시각화 웹 개발</li>
+                        </ul>
+                    </div>
+                    <div class="course-item reveal">
+                        <h4>창의적 공학 설계</h4>
+                        <ul class="course-list">
+                            <li>Design Thinking 문제 해결</li>
+                            <li>하드웨어 프로토타이핑 수행</li>
+                        </ul>
+                    </div>
+                    <div class="course-item reveal">
+                        <h4>전기/전자이론 및 실험</h4>
+                        <ul class="course-list">
+                            <li>회로 무결성 분석 및 실험</li>
+                            <li>미세 신호 노이즈 제거 기술</li>
+                        </ul>
+                    </div>
+                    <div class="course-item reveal">
+                        <h4>전자기학 및 제어이론</h4>
+                        <ul class="course-list">
+                            <li>EMI 대응 설계 및 PID 제어</li>
+                            <li>모션 트래킹 모델링 구현</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootcamp Content (Updated with New Image Content) -->
+        <section id="section-bootcamp">
+            <div class="section-label">BOOTCAMP</div>
+            <div class="content-area">
+                <div class="reveal">
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary-color);">SPECIAL EDUCATION</span>
+                    <h2 class="shadow-text" style="font-size: 3.5rem; margin: 15px 0; font-weight: 800;">반도체 특화 전문 교육</h2>
+                    
+                    <div class="bootcamp-main-card" style="margin-top: 40px; border: 1px solid var(--primary-color); padding: 40px; border-radius: 20px; background: rgba(0, 242, 255, 0.05);">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 15px;">반도체 장비 S/W 실무 교육</h3>
+                        <p style="font-size: 1.1rem; color: var(--text-main);">연주님은 동양미래대학교 반도체부트캠프 사업단의 멤버로 다음 과정을 완수 중입니다.</p>
+                    </div>
+
+                    <div class="bootcamp-sub-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;">
+                        <div class="bootcamp-sub-card">
+                            <span class="badge-v2">Micro-degree</span>
+                            <h4 style="margin: 20px 0 10px;">반도체 마이크로디그리</h4>
+                            <p style="color: var(--primary-color); font-size: 0.9rem; font-weight: 700;">[2026학년도 1학기 이수]</p>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 15px; line-height: 1.6;">
+                                첨단 분야 인재 양성을 위한 반도체 특화 단기 집중 교육과정. 산업체가 요구하는 핵심 역량을 체계적으로 습득.
+                            </p>
+                        </div>
+                        <div class="bootcamp-sub-card">
+                            <span class="badge-v2">Intensive</span>
+                            <h4 style="margin: 20px 0 10px;">PLC 실무 몰입 교육</h4>
+                            <p style="color: var(--primary-color); font-size: 0.9rem; font-weight: 700;">[2026.01.19 ~ 01.28]</p>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 15px; line-height: 1.6;">
+                                8일간의 집중 몰입 교육. PLC를 활용한 장비 제어 로직 설계 및 트러블슈팅 실무 (FSE 핵심 역량).
+                            </p>
+                        </div>
+                        <div class="bootcamp-sub-card">
+                            <span class="badge-v2">Equip S/W</span>
+                            <h4 style="margin: 20px 0 10px;">반도체장비 S/W 실무</h4>
+                            <p style="color: var(--primary-color); font-size: 0.9rem; font-weight: 700;">[2026.01.06 개강]</p>
+                            <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 15px; line-height: 1.6;">
+                                반도체 제조 장비 운용에 필수적인 소프트웨어 구조 이해 및 실전 프로그래밍 역량 배양.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="reveal" style="margin-top: 80px;">
+                        <h2 class="shadow-text" style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 800;">3개년 전문학사/학사 과정 로드맵</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="step-num">01</div>
+                                <div class="step-content">
+                                    <h3>기초 역량 확보</h3>
+                                    <p>기계, 전기 전자, 프로그래밍의 기초를 다지며 로봇 및 자동화 요소 기술에 대한 이해도를 높임.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="step-num">02</div>
+                                <div class="step-content">
+                                    <h3>현장 실무 집중</h3>
+                                    <p>통신 및 인공지능 기술을 융합한 다양한 로봇 설계 및 제작 프로젝트 수행 (Skill-Up 교육).</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="step-num">03</div>
+                                <div class="step-content">
+                                    <h3>통합 시스템 설계</h3>
+                                    <p>프로젝트식 교육을 통해 산업 현장에서 요구하는 자동화 시스템 구성 및 운영 능력 배양.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item special">
+                                <div class="step-num">+</div>
+                                <div class="step-content">
+                                    <h3>심화 과정</h3>
+                                    <p>자동화공학과 학사 학위 과정을 통해 더욱 깊이 있는 엔지니어링 지식 습득.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Board Section (Updated with Neon Theme) -->
+        <section id="section-board">
+            <div class="section-label">BOARD</div>
+            <div class="content-area">
+                <div class="reveal">
+                    <h2 class="shadow-text" style="font-size: 4rem; font-weight: 800; text-align: center; margin-bottom: 60px;">자유게시판</h2>
+                    
+                    <div class="board-main-container neon-border-box" style="background: rgba(10, 25, 47, 0.4); backdrop-filter: blur(10px); border-radius: 30px; padding: 60px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0, 242, 255, 0.2); padding-bottom: 30px; margin-bottom: 40px;">
+                            <h3 style="font-size: 1.5rem; color: #fff; margin: 0; font-weight: 800;">게시물 목록</h3>
+                            <button onclick="showBoardForm()" class="write-btn-v3" style="background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 10px 30px; border-radius: 30px; cursor: pointer; font-weight: 700; transition: 0.3s;">새 글 쓰기</button>
+                        </div>
+                        
+                        <div id="board-list-container">
+                            <div id="board-list">
+                                <p style="color: #888; font-size: 1.1rem; margin: 0;">등록된 게시물이 없습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div> <!-- End of home view -->
+
+        <!-- Dedicated Board Form View (Precisely Matching Image) -->
+        <div id="view-board-form" class="view">
+            <section id="section-board-form">
+                <div class="section-label">WRITE</div>
+                <div class="content-area">
+                    <div class="reveal">
+                        <div style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 20px; margin-bottom: 40px;">
+                            <h2 style="font-size: 1.5rem; color: #fff; margin: 0;">게시물 목록</h2>
+                        </div>
+                        
+                        <div class="board-form-card" style="background: rgba(15, 10, 10, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); padding: 50px; border-radius: 20px; max-width: 900px; margin: 0 auto;">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 10px; font-weight: 800; color: #fff;">문의 및 요청사항 등록</h3>
+                            <form id="board-form" class="modern-form">
+                                <input type="hidden" id="post-id">
+                                <input type="hidden" id="parent-id">
+                                
+                                <div class="form-group" style="margin-bottom: 30px;">
+                                    <label for="board-name" style="color: #eee; font-size: 1rem; margin-bottom: 15px; display: block; font-weight: 800;">이름</label>
+                                    <input type="text" id="board-name" name="name" required placeholder="성함을 입력해주세요" style="background: rgba(0,0,0,0.2); border: 1px solid var(--primary-color); padding: 18px; border-radius: 15px; width: 100%; color: #fff; box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.05);">
+                                </div>
+                                
+                                <div class="form-group" style="margin-bottom: 30px;">
+                                    <label for="board-email" style="color: #eee; font-size: 1rem; margin-bottom: 15px; display: block; font-weight: 800;">이메일</label>
+                                    <input type="email" id="board-email" name="email" required placeholder="example@email.com" style="background: rgba(0,0,0,0.2); border: 1px solid var(--primary-color); padding: 18px; border-radius: 15px; width: 100%; color: #fff; box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.05);">
+                                </div>
+                                
+                                <div class="form-group" style="margin-bottom: 40px;">
+                                    <label for="board-content" style="color: #eee; font-size: 1rem; margin-bottom: 15px; display: block; font-weight: 800;">내용</label>
+                                    <textarea id="board-content" name="content" required placeholder="문의하실 내용을 입력해주세요" rows="8" style="background: rgba(0,0,0,0.2); border: 1px solid var(--primary-color); padding: 18px; border-radius: 15px; width: 100%; color: #fff; resize: none; box-shadow: inset 0 0 10px rgba(0, 242, 255, 0.05);"></textarea>
+                                </div>
+                                
+                                <div class="form-actions" style="display: flex; justify-content: flex-end; gap: 15px;">
+                                    <button type="button" onclick="hideBoardForm()" class="cancel-btn-v3" style="background: rgba(255,255,255,0.05); color: #888; border: 1px solid #333; padding: 12px 35px; border-radius: 30px; cursor: pointer; font-size: 0.95rem;">취소</button>
+                                    <button type="submit" class="submit-btn-v3" style="background: #333; color: #fff; border: none; padding: 12px 35px; border-radius: 30px; cursor: pointer; font-weight: 700; font-size: 0.95rem;">등록하기</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div style="margin-top: 60px; display: flex; justify-content: center; gap: 20px;">
+                            <button onclick="navTo('home')" class="home-nav-btn">HOME</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="section-contact">
+            <div class="section-label">CONTACT</div>
+            <div class="content-area">
+                <div class="reveal">
+                    <h2 style="font-size: 3rem; margin-bottom: 40px; font-weight: 800;">Contact Me</h2>
+                    <form id="contact-form" class="modern-form">
+                        <div class="form-group">
+                            <label for="contact-name">이름</label>
+                            <input type="text" id="contact-name" name="name" required placeholder="성함을 입력해주세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">이메일</label>
+                            <input type="email" id="contact-email" name="email" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-body">내용</label>
+                            <textarea id="contact-body" name="content" required placeholder="문의하실 내용을 입력해주세요" rows="8"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="contact-submit">보내기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Footer -->
+        <footer style="padding: 120px 100px; background: #121212; color: #fff;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 60px;">
+                <div>
+                    <h2 style="font-size: 2.5rem; font-weight: 800;">YEONJU</h2>
+                    <p style="font-size: 1rem; color: #888; margin-top: 10px;">Lam Research KOREA - FSE Candidate Portfolio</p>
+                </div>
+                <div style="text-align: right;">
+                    <button onclick="switchView('home')" class="back-home-btn" style="margin-bottom: 20px; background: transparent; border: 1px solid #444; color: #fff; padding: 10px 20px; cursor: pointer; border-radius: 5px;">홈으로 돌아가기</button>
+                    <p style="font-size: 1.5rem; font-weight: 700;">010.3709.0318</p>
+                    <p style="font-size: 1.1rem; color: var(--accent-color); margin-top: 5px;">yeonjuji100@gmail.com</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 40px; font-size: 0.8rem; color: #555; letter-spacing: 0.1em;">
+                <p>© 2026 PRECISION ENGINEERING PORTFOLIO</p>
+                <div style="display: flex; gap: 30px;">
+                    <a href="mailto:yeonjuji100@gmail.com" style="color: inherit; text-decoration: none;">EMAIL</a>
+                    <a href="tel:01037090318" style="color: inherit; text-decoration: none;">CALL</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
