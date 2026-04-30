@@ -58,16 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData.entries());
             
             try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                // Firebase Firestore integration
+                const { collection, addDoc, serverTimestamp } = window.fb;
+                await addDoc(collection(window.db, "contacts"), {
+                    ...data,
+                    date: new Date().toLocaleString(),
+                    createdAt: serverTimestamp()
                 });
-                const result = await response.json();
-                if (result.success) {
-                    alert('문의가 성공적으로 전송되었습니다.');
-                    contactForm.reset();
-                }
+                
+                alert('문의가 성공적으로 전송되었습니다.');
+                contactForm.reset();
             } catch (error) {
                 console.error('Error submitting contact form:', error);
                 alert('전송 중 오류가 발생했습니다.');
@@ -85,12 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
     window.refreshBoard = async () => {
         if (!boardList) return;
         try {
-            const response = await fetch('/api/board');
-            const posts = await response.json();
+            const { collection, getDocs, query, orderBy } = window.fb;
+            const q = query(collection(window.db, "posts"), orderBy("createdAt", "desc"));
+            const querySnapshot = await getDocs(q);
+            const posts = [];
+            querySnapshot.forEach((doc) => {
+                posts.push({ id: doc.id, ...doc.data() });
+            });
             renderBoard(posts);
         } catch (error) {
             console.error('Error fetching board:', error);
-            boardList.innerHTML = '<div class="error">데이터를 불러오지 못했습니다.</div>';
+            boardList.innerHTML = '<div class="error">데이터를 불러오지 못했습니다. (Firebase 설정을 확인해주세요)</div>';
         }
     };
 
@@ -156,15 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.deletePost = async (id) => {
         if (!confirm('정말 삭제하시겠습니까?')) return;
         try {
-            const response = await fetch('/api/board', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: 'delete', id: id })
-            });
-            const result = await response.json();
-            if (result.success) refreshBoard();
+            const { doc, deleteDoc } = window.fb;
+            await deleteDoc(doc(window.db, "posts", id));
+            refreshBoard();
         } catch (error) {
             console.error('Error deleting post:', error);
+            alert('삭제 중 오류가 발생했습니다.');
         }
     };
 
@@ -176,28 +178,50 @@ document.addEventListener('DOMContentLoaded', () => {
             const postId = document.getElementById('post-id').value;
             const parentId = document.getElementById('parent-id').value;
 
-            if (postId) {
-                // Edit action
-                data.action = 'edit';
-                data.id = postId;
-            } else {
-                // New post or reply
-                if (parentId) data.parentId = parentId;
-            }
-
             try {
-                const response = await fetch('/api/board', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                const result = await response.json();
-                if (result.success) {
-                    hideBoardForm();
-                    refreshBoard();
+                const { collection, addDoc, doc, updateDoc, serverTimestamp } = window.fb;
+                
+                if (postId) {
+                    // Edit action
+                    await updateDoc(doc(window.db, "posts", postId), {
+                        content: data.content,
+                        date: new Date().toLocaleString() + " (수정됨)"
+                    });
+                } else {
+                    // New post or reply
+                    const newPost = {
+                        name: data.name,
+                        email: data.email,
+                        content: data.content,
+                        date: new Date().toLocaleString(),
+                        createdAt: serverTimestamp(),
+                        replies: []
+                    };
+                    
+                    if (parentId) {
+                        const { getDoc, doc, updateDoc } = window.fb;
+                        const parentDocRef = doc(window.db, "posts", parentId);
+                        const parentDocSnap = await getDoc(parentDocRef);
+                        
+                        if (parentDocSnap.exists()) {
+                            const parentData = parentDocSnap.data();
+                            const currentReplies = parentData.replies || [];
+                            // Add new ID to the reply (client-side generated GUID or similar, but for now we'll just add the object)
+                            const replyWithId = { ...newPost, id: Math.random().toString(36).substr(2, 9) };
+                            await updateDoc(parentDocRef, {
+                                replies: [...currentReplies, replyWithId]
+                            });
+                        }
+                    } else {
+                        await addDoc(collection(window.db, "posts"), newPost);
+                    }
                 }
+
+                hideBoardForm();
+                refreshBoard();
             } catch (error) {
                 console.error('Error submitting board data:', error);
+                alert('저장 중 오류가 발생했습니다.');
             }
         });
     }

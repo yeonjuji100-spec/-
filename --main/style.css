@@ -281,11 +281,78 @@ section::after {
     object-fit: contain;
 }
 
+.project-gallery-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 120px;
+}
+
+.arduino-square-container, .video-main-container {
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    border-radius: 30px; /* Standardized radius */
+    border: 1px solid var(--border-color);
+    box-shadow: var(--glow-primary);
+    background: rgba(10, 15, 30, 0.5);
+}
+
+.arduino-square-container img, .video-main-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.arduino-square-container img {
+    object-position: center 80%;
+}
+
+.gallery-item .video-container {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-item .project-visual {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-item .project-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-label {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-align: center;
+}
+
 .project-media-grid {
     display: flex;
     gap: 20px;
     flex: 1.5;
-    align-items: flex-start; /* Align to top to prevent stretching */
+    align-items: flex-start;
 }
 
 .project-media-grid .project-visual {
