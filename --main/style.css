@@ -1007,3 +1007,6 @@ section::before {
     margin-right: 12px;
     font-weight: bold;
 }
+
+.crop-arduino { aspect-ratio: 1 / 1 !important; object-fit: cover !important; object-position: center 80% !important; }
+.video-container video { max-height: 400px; }

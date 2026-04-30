@@ -1,0 +1,20 @@
+[
+    {
+        "name":  "Jetski",
+        "email":  "jetski@example.com",
+        "content":  "This is a test message.",
+        "date":  "2026-04-09 11:09:44"
+    },
+    {
+        "name":  "Test User",
+        "email":  "test@example.com",
+        "content":  "Hello, this is a test contact message.",
+        "date":  "2026-04-09 11:21:02"
+    },
+    {
+        "name":  "Test User",
+        "email":  "test@example.com",
+        "content":  "This is a re-test of the contact form success verification.",
+        "date":  "2026-04-09 11:23:51"
+    }
+]
